@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 border">
+
+      <div class="row home">
+        <span class="h3">Página Inicial</span>
+      </div>
+      <div class="row">
+          <div class="col-2">
+            <div class="user-view">
+              <img class="responsive-img img" src="https://avatars.githubusercontent.com/u/3903977?s=200&u=2b759d200b94f4e32e055161816ffaf017aa62a3&v=4">
+            </div>
+          </div>
+          <div class="col-10 px-2">
+            <div ngbDropdown class="d-inline-block">
+              <button type="button" class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>
+                Toggle dropdown
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem>Action - 1</button>
+                <button ngbDropdownItem>Another Action</button>
+                <button ngbDropdownItem>Something else is here</button>
+              </div>
+            </div>
+            <div class="row px-3 mt-2 mb-2">
+              <textarea class="form-control p-2" id="w3review" name="w3review" (keyup)="autoGrowTextZone($event); contaCaracteres($event)" maxlength="130" placeholder="O que está acontecendo ?">{{text}}</textarea>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <a><i class="bi bi-globe-americas text-primary"> Qualquer pessoa pode responder </i></a>
+                <div class="row px-3 mt-2">
+                  <span class="border-bottom"></span>
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-8 divider-vertical p-3">
+                <div class="row">
+                  <div class="col-1 text-primary">
+                    <a role="button"><i class="bi bi-image"></i></a>
+                  </div>
+                  <div class="col-1 text-primary">
+                    <a role="button"><i class="bi bi-filetype-gif"></i></a></div>
+                  <div class="col-1 text-primary">
+                    <a role="button"><i class="bi bi-list-ul"></i></a></div>
+                  <div class="col-1 text-primary" >
+                    <a role="button"><i class="bi bi-emoji-smile"></i></a></div>
+                  <div class="col-1 text-primary">
+                    <a role="button"><i class="bi bi-calendar-event"></i></a></div>
+                  <div class="col-1 text-primary">
+                    <a role="button"><i class="bi bi-geo-alt"></i></a></div>
+                </div>
+              </div>
+              <div class="col-3 p-3">
+                <div class="row">
+                  <div class="col-6 px-3">
+                    <p><small>{{contagem}}/130</small></p>
+                  </div>
+                  <div class="col-6">
+                    <button type="button" class="btn btn-primary tweet-bottom btn-sm" (click)="tweetar()">Twettar</button>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+      </div>
+
+    </div>
+    <div class="col-sm"></div>
+  </div>
+  </div>

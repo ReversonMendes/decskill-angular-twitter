@@ -1,0 +1,29 @@
+.user-view {
+  position: relative
+}
+
+.user-view .img {
+  width: 54px;
+  border-radius: 50%;
+}
+
+img.responsive-img {
+  max-width: 100%;
+  height: auto;
+}
+
+textarea {
+  border: none;
+  outline: none;
+}
+
+.divider-vertical {
+  border-right: 1px solid #dee2e6;
+}
+
+.tweet-bottom{
+  border-radius: 9999px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-width: 1px;
+}
