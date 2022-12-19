@@ -1,0 +1,11 @@
+version: "3"
+
+volumes:
+  dbdata:
+
+services:
+  frontend:
+    build:
+      context: ./
+    ports:
+      - "8080:80"

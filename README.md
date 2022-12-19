@@ -1,27 +1,21 @@
-# AngularTwitterDecskill
+# DECSKILL - Reverson Batista Mendes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
+Esse projeto foi criado para avalição do processo seletivo DECSKILL.
 
-## Development server
+## Desenvolvimento
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+A Aplicação foi desenvolvida em Angular.
+Afim de acelerar o desenvolvimento utilizei Bootstrap Angular
 
 ## Build
+Execute `ng build --prod` para compilar o projeto com uma compilação de produção. Os artefatos de construção serão armazenados no diretório dist/.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`npm i` or `npm install`
 
-## Running unit tests
+`ng build --prod`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## DOCKER
 
-## Running end-to-end tests
+Para executar a aplicação em container docker rodar o seguinte comando na raiz do projeto `docker-compose up`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+A Aplicação frontend estará rodando na porta `http://localhost:8080` -> [LINK](http://localhost:8080)

@@ -14,7 +14,7 @@ export class FeedComponent implements OnInit {
   constructor(
     private localStorage: LocalStorageService,
     private modalService: NgbModal
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadFeed();

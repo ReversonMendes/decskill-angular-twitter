@@ -14,7 +14,7 @@
           <div class="row p-0 ">
             <div class="d-flex justify-content-between">
               <div class="">
-                <span class="dark"> <strong><small>Reverson Mendes</small></strong></span>
+                <span class="dark"> <strong><small>Reverson Batista Mendes</small></strong></span>
                 <span class="dark text-small"> @ReversonMendes</span>
                 <i class="bi bi-dot"></i>
                 <span> <small>{{computaTime(tweet)}}</small></span>
@@ -26,7 +26,8 @@
                     <i class="bi bi-three-dots"></i>
                   </a>
                   <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <a ngbDropdownItem (click)="open(content, tweet)"><i class="bi bi-trash text-primary"> Excluir</i></a>
+                    <a ngbDropdownItem (click)="open(content, tweet)"><i class="bi bi-trash text-primary">
+                        Excluir</i></a>
                   </div>
                 </div>
               </div>
@@ -54,16 +55,17 @@
 </div>
 
 <ng-template #content let-modal>
-	<div class="modal-header">
-		<h5 id="modal-basic-title">Excluir Tweet?</h5>
-	</div>
-	<div class="modal-body">
-    <p> Essa ação não poderá ser desfeita, e ele será removido do seu perfil, da timeline de todas as contas que seguem você e dos resultados de busca do Twitter. </p>
+  <div class="modal-header">
+    <h5 id="modal-basic-title">Excluir Tweet?</h5>
   </div>
-	<div class="p-4">
+  <div class="modal-body">
+    <p> Essa ação não poderá ser desfeita, e ele será removido do seu perfil, da timeline de todas as contas que seguem
+      você e dos resultados de busca do Twitter. </p>
+  </div>
+  <div class="p-4">
     <div class="d-grid gap-2">
       <button class="btn btn-danger" type="button" (click)="modal.close('excluir')">Excluir</button>
       <button class="btn btn-light" type="button" (click)="modal.close('cancelar')">Cancelar</button>
     </div>
-	</div>
+  </div>
 </ng-template>
