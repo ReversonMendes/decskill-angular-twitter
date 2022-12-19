@@ -12,24 +12,24 @@ export class TweetComponent implements OnInit {
   @Output()
   tweetEnviado = new EventEmitter();
 
-  text = " ";
+  text: string = "";
   contagem = 0;
+  visibity= 'all';
 
   constructor(private localService : LocalStorageService) { }
 
   ngOnInit( ): void {
   }
 
-  contaCaracteres(event: any){
+  contaCaracteres(){
     try {
-      this.text = event.target.value;
       this.contagem = this.text.length
     } catch(e) {
       console.info('could not set textarea-value');
     }
   }
 
-  autoGrowTextZone(e: any) {
+  autoSizeArea(e: any) {
     e.target.style.height = "0px";
     e.target.style.height = (e.target.scrollHeight + 25)+"px";
   }
@@ -41,13 +41,19 @@ export class TweetComponent implements OnInit {
       const tweet : Tweet = {
         id: feed.length + 1,
         conteudo: this.text,
-        dtHora: Date.now().toString(),
+        dtHora: new Date(Date.now()),
       }
       feed.push(tweet);
       this.localService.set('feed', feed);
       this.tweetEnviado.emit();
+      this.text = "";
+      this.contagem = 0;
     }
 
+  }
+
+  privacy(event: string){
+    this.visibity = event;
   }
 
 }

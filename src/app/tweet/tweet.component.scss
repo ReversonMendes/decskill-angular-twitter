@@ -17,13 +17,27 @@ textarea {
   outline: none;
 }
 
-.divider-vertical {
-  border-right: 1px solid #dee2e6;
-}
+
 
 .tweet-bottom{
   border-radius: 9999px;
   padding-left: 16px;
   padding-right: 16px;
   border-width: 1px;
+  font-size: calc(0.5rem + 0.4vw);
+}
+
+.privacy-bottom{
+  border-radius: 9999px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-width: 1px;
+  --bs-btn-padding-y: .25rem;
+  --bs-btn-padding-x: .5rem;
+  --bs-btn-font-size: .7rem;
+}
+
+.contador {
+  font-size: calc(0.5rem + 0.4vw);
+  color: gray;
 }

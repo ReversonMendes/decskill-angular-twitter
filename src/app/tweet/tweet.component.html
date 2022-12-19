@@ -2,33 +2,42 @@
   <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6 border">
+      <div class="row home mt-3">
+        <div class="col-11">
+          <span class="h5"><strong>Página Inicial</strong></span>
+        </div>
+        <div class="col-1 justify-content-end">
+          <i class="bi bi-stars"></i>
+        </div>
 
-      <div class="row home">
-        <span class="h3">Página Inicial</span>
+
       </div>
-      <div class="row">
+      <div class="row mt-2">
           <div class="col-2">
             <div class="user-view">
               <img class="responsive-img img" src="https://avatars.githubusercontent.com/u/3903977?s=200&u=2b759d200b94f4e32e055161816ffaf017aa62a3&v=4">
             </div>
           </div>
-          <div class="col-10 px-2">
+          <div class="col-10 px-1">
             <div ngbDropdown class="d-inline-block">
-              <button type="button" class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>
-                Toggle dropdown
+              <button type="button" *ngIf="visibity==='all'" class="btn btn-outline-primary btn-sm privacy-bottom" id="dropdownBasic1" ngbDropdownToggle>
+                Qualquer pessoa
+              </button>
+              <button type="button" *ngIf="visibity==='restrict'" class="btn btn-outline-success btn-sm privacy-bottom" id="dropdownBasic1" ngbDropdownToggle>
+                Roda do Twitter
               </button>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button ngbDropdownItem>Action - 1</button>
-                <button ngbDropdownItem>Another Action</button>
-                <button ngbDropdownItem>Something else is here</button>
+                <button ngbDropdownItem class="btn-sm"><i class="bi bi-globe-americas" (click)="privacy('all')">  Qualquer pessoa pode responder </i></button>
+                <button ngbDropdownItem class="btn-sm"><i class="bi bi-person-heart" (click)="privacy('restrict')">  Roda do Twitter</i> </button>
               </div>
             </div>
             <div class="row px-3 mt-2 mb-2">
-              <textarea class="form-control p-2" id="w3review" name="w3review" (keyup)="autoGrowTextZone($event); contaCaracteres($event)" maxlength="130" placeholder="O que está acontecendo ?">{{text}}</textarea>
+              <textarea class="form-control p-2"  [(ngModel)]="text" id="textarea" name="textarea" (keyup)="autoSizeArea($event); contaCaracteres()" maxlength="130" placeholder="O que está acontecendo ?"></textarea>
             </div>
             <div class="row">
               <div class="col-12">
-                <a><i class="bi bi-globe-americas text-primary"> Qualquer pessoa pode responder </i></a>
+                <a><i class="bi bi-globe-americas text-primary" *ngIf="visibity==='all'"> <small> Qualquer pessoa pode responder </small> </i></a>
+                <a><i class="bi bi-file-lock2-fill text-success" *ngIf="visibity==='restrict'"> <small> Somente a sua Roda do Twitter pode responder </small> </i></a>
                 <div class="row px-3 mt-2">
                   <span class="border-bottom"></span>
                 </div>
@@ -36,7 +45,7 @@
 
             </div>
             <div class="row">
-              <div class="col-8 divider-vertical p-3">
+              <div class="col-7 p-3">
                 <div class="row">
                   <div class="col-1 text-primary">
                     <a role="button"><i class="bi bi-image"></i></a>
@@ -53,13 +62,13 @@
                     <a role="button"><i class="bi bi-geo-alt"></i></a></div>
                 </div>
               </div>
-              <div class="col-3 p-3">
-                <div class="row">
-                  <div class="col-6 px-3">
-                    <p><small>{{contagem}}/130</small></p>
+              <div class="col-3">
+                <div class="row p-2 mt-1">
+                  <div class="col-6 mt-1">
+                    <p class="contador"><strong>{{contagem}}/130</strong></p>
                   </div>
                   <div class="col-6">
-                    <button type="button" class="btn btn-primary tweet-bottom btn-sm" (click)="tweetar()">Twettar</button>
+                    <button type="button" class="btn btn-primary tweet-bottom btn-sm" [disabled]="text === ''" (click)="tweetar()">Twettar</button>
                     </div>
                 </div>
 

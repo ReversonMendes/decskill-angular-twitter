@@ -1,17 +1,37 @@
 <app-tweet (tweetEnviado)="loadFeed()"></app-tweet>
 <div class="container">
-<div class="row" *ngFor="let tweet of feed">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-6 border">
-    <div class="row">
+  <div class="row" *ngFor="let tweet of feed">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 border">
+      <div class="row">
         <div class="col-2">
           <div class="user-view mt-2">
-            <img class="responsive-img img" src="https://avatars.githubusercontent.com/u/3903977?s=200&u=2b759d200b94f4e32e055161816ffaf017aa62a3&v=4">
+            <img class="responsive-img img"
+              src="https://avatars.githubusercontent.com/u/3903977?s=200&u=2b759d200b94f4e32e055161816ffaf017aa62a3&v=4">
           </div>
         </div>
         <div class="col-10 px-2">
-          <div class="row p-0 mt-3">
-            <span>{{tweet.dtHora | date: 'medium'}}</span>
+          <div class="row p-0 ">
+            <div class="d-flex justify-content-between">
+              <div class="">
+                <span class="dark"> <strong><small>Reverson Mendes</small></strong></span>
+                <span class="dark text-small"> @ReversonMendes</span>
+                <i class="bi bi-dot"></i>
+                <span> <small>{{computaTime(tweet)}}</small></span>
+                <span *ngIf="computaTime(tweet) === ''"> <small>{{tweet.dtHora | date: 'mediumDate'}}</small></span>
+              </div>
+              <div class="">
+                <div ngbDropdown class="d-inline-block">
+                  <a role="button" type="button" ngbDropdownToggle>
+                    <i class="bi bi-three-dots"></i>
+                  </a>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <a ngbDropdownItem (click)="open(content, tweet)"><i class="bi bi-trash text-primary"> Excluir</i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
           <div class="row px-3">
             <span>{{tweet.conteudo}}</span>
@@ -19,16 +39,31 @@
           <div class="row">
             <div class="col-10 p-3">
               <div class="row d-flex justify-content-between">
-                <div class="col-2 text-primary"><a role="button"><i class="bi bi-chat"></i></a></div>
-                <div class="col-2 text-primary"><a role="button"><i class="bi bi-arrow-repeat"></i></a></div>
-                <div class="col-2 text-primary"><a role="button"><i class="bi bi-heart"></i></a></div>
-                <div class="col-2 text-primary"><a role="button"><i class="bi bi-arrow-bar-up"></i></a></div>
+                <div class="col-2 chat"><a role="button"><i class="bi bi-chat"></i></a></div>
+                <div class="col-2 cicle"><a role="button"><i class="bi bi-arrow-repeat"></i></a></div>
+                <div class="col-2 like"><a role="button"><i class="bi bi-heart"></i></a></div>
+                <div class="col-2 share"><a role="button"><i class="bi bi-arrow-bar-up"></i></a></div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-sm"></div>
   </div>
+</div>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h5 id="modal-basic-title">Excluir Tweet?</h5>
+	</div>
+	<div class="modal-body">
+    <p> Essa ação não poderá ser desfeita, e ele será removido do seu perfil, da timeline de todas as contas que seguem você e dos resultados de busca do Twitter. </p>
   </div>
-  <div class="col-sm"></div>
-</div>
-</div>
+	<div class="p-4">
+    <div class="d-grid gap-2">
+      <button class="btn btn-danger" type="button" (click)="modal.close('excluir')">Excluir</button>
+      <button class="btn btn-light" type="button" (click)="modal.close('cancelar')">Cancelar</button>
+    </div>
+	</div>
+</ng-template>

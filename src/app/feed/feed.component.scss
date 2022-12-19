@@ -1,3 +1,4 @@
+
 .user-view {
   position: relative
 }
@@ -11,3 +12,16 @@ img.responsive-img {
   max-width: 100%;
   height: auto;
 }
+.dropdown-toggle::after {
+  display:none;
+}
+
+.text-small{
+  font-size: small;
+  font-weight: 200;
+}
+
+.chat i:hover { -webkit-text-stroke: 1px; color: #1DA1F2;}
+.cicle i:hover { -webkit-text-stroke: 1px; color: #1df228;}
+.like i:hover { -webkit-text-stroke: 1px; color: #f81515;}
+.share i:hover { -webkit-text-stroke: 1px; color: #1DA1F2;}
